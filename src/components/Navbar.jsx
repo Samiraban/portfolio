@@ -62,7 +62,7 @@ export default function Navbar() {
               {theme === "dark" ? <FiSun /> : <FiMoon />}
             </button>
 
-            {/* Download Resume: file lives in public/resume.pdf */}
+            {/* Download Resume: file lives in public/Samira_Ban_Resume.pdf */}
             <a className="btn btn-outline nav-resume" href={profile.resume} download="Samira_Ban_Resume.pdf">
               Download Resume
             </a>

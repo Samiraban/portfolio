@@ -11,7 +11,7 @@ export const profile = {
   github: "https://github.com/Samiraban",
   githubUser: "Samiraban",
   linkedin: "", // TODO: paste your LinkedIn URL here (hidden while empty)
-  resume: "/resume.pdf", // put your file at public/resume.pdf
+  resume: "/Samira_Ban_Resume.pdf",
   photo: "/samira-ban.jpg", // your photo in public/
 };
 
