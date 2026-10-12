@@ -1,7 +1,7 @@
 export const profile = {
   name: "Samira Ban",
   initials: "SB",
-  role: "Software Engineer",
+  role: "Junior Full-Stack Developer",
   subRole: "Full-Stack Developer",
   intro:
     "Full-Stack Developer interested in building digital products that look thoughtful, work reliably, and solve practical problems — from responsive interfaces to backend functionality.",
