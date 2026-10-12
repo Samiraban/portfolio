@@ -11,10 +11,12 @@ export default function Hero() {
             <i className="pulse" /> AVAILABLE FOR OPPORTUNITIES
           </span>
 
-          <h1>
-            Hi, I’m {profile.name} —<br />
-            <span className="grad">{profile.role}.</span>
-          </h1>
+       <h1 className="hero-title">
+  Hi, I'm Samira Ban
+  <span className="hero-role grad">
+    Junior Full-Stack Developer.
+  </span>
+</h1>
 
           <p className="mono-label">{profile.subRole.toUpperCase()}</p>
           <p className="lead">{profile.intro}</p>
