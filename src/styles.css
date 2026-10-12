@@ -1347,3 +1347,369 @@ h4 {
     bottom: 20px;
   }
 }
+
+/* ==========================================
+   ANIMATED PROFILE PHOTO — HERO ONLY
+   ========================================== */
+
+.orbit-profile {
+  --orbit-accent: #65e7ff;
+  --orbit-purple: #9b8cff;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 510px;
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(49, 87, 145, 0.24),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at center,
+      #111d35 0%,
+      #0a1020 58%,
+      #070b14 100%
+    );
+}
+
+/* Availability label */
+
+.orbit-status {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  padding: 9px 13px;
+  border: 1px solid rgba(101, 231, 255, 0.24);
+  border-radius: 50px;
+  background: rgba(8, 15, 29, 0.82);
+  color: #d8f8ff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+}
+
+.orbit-status-dot,
+.caption-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #60f5bb;
+  box-shadow: 0 0 12px rgba(96, 245, 187, 0.85);
+}
+
+/* Orbital rings */
+
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  border: 1px solid rgba(101, 231, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.orbit-ring-outer {
+  width: 86%;
+  height: 86%;
+  border-color: rgba(101, 231, 255, 0.3);
+  box-shadow:
+    0 0 24px rgba(101, 231, 255, 0.045),
+    inset 0 0 24px rgba(101, 231, 255, 0.025);
+  animation: orbit-ring-breathe 5s ease-in-out infinite;
+}
+
+.orbit-ring-middle {
+  width: 72%;
+  height: 72%;
+  border-style: dashed;
+  border-color: rgba(155, 140, 255, 0.36);
+  animation: orbit-ring-rotate 32s linear infinite;
+}
+
+.orbit-ring-inner {
+  width: 59%;
+  height: 59%;
+  border-color: rgba(101, 231, 255, 0.3);
+  box-shadow: 0 0 18px rgba(101, 231, 255, 0.08);
+}
+
+/* Orbiting labels */
+
+.orbit-track {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.orbit-track-outer {
+  animation: orbit-ring-rotate 24s linear infinite;
+}
+
+.orbit-track-inner {
+  animation: orbit-ring-rotate-reverse 18s linear infinite;
+}
+
+.orbit-node {
+  position: absolute;
+  display: grid;
+  min-width: 46px;
+  min-height: 38px;
+  place-items: center;
+  padding: 8px 11px;
+  border: 1px solid rgba(101, 231, 255, 0.28);
+  border-radius: 12px;
+  background: rgba(12, 24, 43, 0.96);
+  color: #dffaff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(101, 231, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* Keep each label upright as its orbit rotates */
+
+.orbit-track-outer .orbit-node {
+  animation: orbit-ring-rotate-reverse 24s linear infinite;
+}
+
+.orbit-track-inner .orbit-node {
+  animation: orbit-ring-rotate 18s linear infinite;
+}
+
+.node-react {
+  top: 19%;
+  left: 17%;
+}
+
+.node-js {
+  top: 31%;
+  right: 8%;
+}
+
+.node-api {
+  bottom: 17%;
+  left: 21%;
+}
+
+.node-node {
+  top: 24%;
+  right: 20%;
+  border-color: rgba(155, 140, 255, 0.42);
+  color: #e2dcff;
+}
+
+.node-db {
+  right: 13%;
+  bottom: 24%;
+  border-color: rgba(155, 140, 255, 0.42);
+  color: #e2dcff;
+}
+
+/* Profile photo */
+
+.orbit-avatar {
+  position: relative;
+  z-index: 3;
+  width: 49%;
+  height: 49%;
+  overflow: hidden;
+  border: 2px solid rgba(101, 231, 255, 0.7);
+  border-radius: 50%;
+  background: #111d35;
+  box-shadow:
+    0 0 0 8px rgba(101, 231, 255, 0.035),
+    0 0 35px rgba(101, 231, 255, 0.17),
+    0 0 85px rgba(101, 231, 255, 0.09);
+  animation: orbit-avatar-float 5s ease-in-out infinite;
+}
+
+.orbit-avatar-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: linear-gradient(
+    150deg,
+    rgba(101, 231, 255, 0.12),
+    transparent 42%,
+    transparent 72%,
+    rgba(155, 140, 255, 0.13)
+  );
+  pointer-events: none;
+}
+
+.orbit-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: inherit;
+}
+
+/* Photo caption */
+
+.orbit-avatar-caption {
+  position: absolute;
+  right: 0;
+  bottom: 8%;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 5px;
+  background: linear-gradient(
+    transparent,
+    rgba(5, 10, 20, 0.9)
+  );
+  color: #fff;
+  font-size: clamp(7px, 1.2vw, 10px);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Decorative sparks */
+
+.orbit-spark {
+  position: absolute;
+  z-index: 4;
+  color: var(--orbit-accent);
+  text-shadow: 0 0 15px rgba(101, 231, 255, 0.8);
+  animation: orbit-spark-pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.spark-one {
+  top: 27%;
+  right: 18%;
+  font-size: 23px;
+}
+
+.spark-two {
+  bottom: 27%;
+  left: 14%;
+  font-size: 22px;
+  animation-delay: 0.7s;
+}
+
+.spark-three {
+  top: 42%;
+  left: 10%;
+  font-size: 20px;
+  animation-delay: 1.2s;
+}
+
+/* Motion */
+
+@keyframes orbit-ring-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-ring-rotate-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes orbit-ring-breathe {
+  0%,
+  100% {
+    opacity: 0.65;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.025;
+  }
+}
+
+@keyframes orbit-avatar-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes orbit-spark-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    scale: 0.85;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.15;
+  }
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 900px) {
+  .orbit-profile {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 600px) {
+  .orbit-profile {
+    max-width: 370px;
+  }
+
+  .orbit-status {
+    top: 7%;
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .orbit-node {
+    min-width: 38px;
+    min-height: 32px;
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-profile *,
+  .orbit-profile *::before,
+  .orbit-profile *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
